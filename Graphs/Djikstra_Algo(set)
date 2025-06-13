@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <climits> 
+#include <set>
 using namespace std;
 
 
@@ -51,3 +52,9 @@ public:
         return ans;
     }
 };
+
+// 1 push operation -> log(v)
+// worst case = v vertex can connect to (v-1) ~ V^2 edges ~ E 
+
+// TC -> v *(log(v) + E.log(v)) -> V.log(v)(1 + E) ~ O(E.v.log(v))
+
