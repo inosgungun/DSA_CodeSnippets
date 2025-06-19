@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "djikstra_algo(priority_queue)": "cpp"
+        "djikstra_algo(priority_queue)": "cpp",
+        "vector": "cpp"
     }
 }
