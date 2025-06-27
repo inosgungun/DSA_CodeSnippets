@@ -62,3 +62,26 @@ public:
         return dp[n];
     }
 };
+
+// Constant Space
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        // dp[i-1] -> prev result , dp[i-2] -> prevprev 
+        // so at each step we only need prev and prevprev
+        int prevprev = 0;
+        int prev = nums[0];
+
+        for(int i = 2 ; i <= n ; i++){
+            int steal = nums[i-1] + prevprev;
+            int skip = prev;
+            int temp = max(steal, skip);
+
+            prevprev = prev;
+            prev = temp;
+        }
+
+        return prev;
+    }
+};
