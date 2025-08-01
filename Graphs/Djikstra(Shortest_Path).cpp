@@ -28,30 +28,25 @@ class Solution {
         }
         
         result[1] = 0;
-		pq.push({0, 1});
+	pq.push({0, 1});
 
-		while(!pq.empty()) {
+	while(!pq.empty()) {
 
-		    int d  = pq.top().first;
-		    int node = pq.top().second;
-		    pq.pop();
+	    int d  = pq.top().first;
+	    int node = pq.top().second;
+	    pq.pop();
 
-		    for(auto &it : adj[node]) {
-
-    			int adjNode = it.first;
-    			int dist    = it.second;
+	    for(auto &it : adj[node]) {
+    		int adjNode = it.first;
+    		int dist    = it.second;
     
-    			if(d + dist < result[adjNode]) {
-    
-    			    result[adjNode] = d + dist;
-    			    pq.push({d+dist, adjNode});
-    			    parent[adjNode] = node;
-    
-    			}
-
-		    }
-
-		}
+    		if(d + dist < result[adjNode]) {
+    		    result[adjNode] = d + dist;
+    		    pq.push({d+dist, adjNode});
+    		    parent[adjNode] = node;
+    		}
+	    }
+	}
 
         vector<int> path;
         int node = n;
@@ -65,8 +60,7 @@ class Solution {
         }
         
         path.push_back(1);
-
         reverse(begin(path), end(path));
-		return path;
+	return path;
     }
 };
